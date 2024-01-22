@@ -12,6 +12,7 @@
         <module>web-elements</module>
         <module>bookstore-application</module>
         <module>bookstore-api</module>
+        <module>model</module>
     </modules>
 
     <properties>
@@ -22,11 +23,12 @@
         <junit.version>5.10.1</junit.version>
         <selenium.version>4.16.1</selenium.version>
         <lombok.version>1.18.30</lombok.version>
+        <aspectj.version>1.9.20.1</aspectj.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-<!--            project dependencies    -->
+            <!--            project dependencies    -->
             <dependency>
                 <groupId>org.example</groupId>
                 <artifactId>bookstore-api</artifactId>
@@ -42,9 +44,14 @@
                 <artifactId>web-elements</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
 
-<!--            base dependencies    -->
+            <!--            base dependencies    -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -68,14 +75,38 @@
         </dependencies>
     </dependencyManagement>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.2</version>
-            </plugin>
-        </plugins>
-    </build>
+    <!--    <dependencies>-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.junit.jupiter</groupId>-->
+    <!--            <artifactId>junit-jupiter-api</artifactId>-->
+    <!--            <version>${junit.version}</version>-->
+    <!--            <scope>test</scope>-->
+    <!--        </dependency>-->
+    <!--    </dependencies>-->
+
+
+<!--    <build>-->
+<!--        <pluginManagement>-->
+<!--            <plugins>-->
+<!--                <plugin>-->
+<!--                    <groupId>org.apache.maven.plugins</groupId>-->
+<!--                    <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                    <version>3.2.2</version>-->
+<!--                    <configuration>-->
+<!--                        <argLine>-->
+<!--                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
+<!--                        </argLine>-->
+<!--                    </configuration>-->
+<!--                    <dependencies>-->
+<!--                        <dependency>-->
+<!--                            <groupId>org.aspectj</groupId>-->
+<!--                            <artifactId>aspectjweaver</artifactId>-->
+<!--                            <version>${aspectj.version}</version>-->
+<!--                        </dependency>-->
+<!--                    </dependencies>-->
+<!--                </plugin>-->
+<!--            </plugins>-->
+<!--        </pluginManagement>-->
+<!--    </build>-->
 
 </project>
